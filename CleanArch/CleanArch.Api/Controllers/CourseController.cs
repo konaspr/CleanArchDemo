@@ -34,5 +34,13 @@ namespace CleanArch.Api.Controllers
 
             return Ok(courseViewModel);
         }
+
+        [HttpPost("Delete")]
+        public IActionResult Delete([FromBody] CourseViewModel courseViewModel)
+        {
+            _courseService.DeleteCourse(courseViewModel.Id);
+
+            return Ok();
+        }
     }
 }

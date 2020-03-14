@@ -43,6 +43,12 @@ namespace CleanArch.Application.Services
             _bus.SendCommand(updateCourseCommand);
         }
 
+        public void DeleteCourse(int id)
+        {
+            var deleteCourseCommand = new DeleteCourseCommand(id);
+            _bus.SendCommand(deleteCourseCommand);
+        }
+
         public CourseViewModel GetCourses()
         {
             return new CourseViewModel()

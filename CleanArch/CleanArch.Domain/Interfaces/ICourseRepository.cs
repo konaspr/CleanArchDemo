@@ -12,5 +12,7 @@ namespace CleanArch.Domain.Interfaces
         void Add(Course course);
 
         void Update(Course course);
+
+        void Delete(int id);
     }
 }

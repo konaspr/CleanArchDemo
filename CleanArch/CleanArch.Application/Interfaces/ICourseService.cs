@@ -12,5 +12,7 @@ namespace CleanArch.Application.Interfaces
         void CreateCourse(CourseViewModel courseViewModel);
 
         void UpdateCourse(CourseViewModel courseViewModel);
+
+        void DeleteCourse(int id);
     }
 }

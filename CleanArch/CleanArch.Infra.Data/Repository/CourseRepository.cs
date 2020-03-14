@@ -26,11 +26,25 @@ namespace CleanArch.Infra.Data.Repository
         {
             var courseDbSet = _ctx.Courses.Find(course.Id);
 
+            if (courseDbSet == null)
+                throw new KeyNotFoundException();
+
             courseDbSet.Name = course.Name;
             courseDbSet.Description = course.Description;
             courseDbSet.ImageUrl = course.ImageUrl;
 
             _ctx.SaveChanges();            
+        }
+
+        public void Delete(int id)
+        {
+            var courseDbSet = _ctx.Courses.Find(id);
+
+            if (courseDbSet == null)
+                throw new KeyNotFoundException();
+
+            _ctx.Courses.Remove(courseDbSet);
+            _ctx.SaveChanges();
         }
 
         public IEnumerable<Course> GetCourses()
