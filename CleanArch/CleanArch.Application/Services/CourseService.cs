@@ -31,6 +31,18 @@ namespace CleanArch.Application.Services
             _bus.SendCommand(createCourseCommand);
         }
 
+        public void UpdateCourse(CourseViewModel courseViewModel)
+        {
+            var updateCourseCommand = new UpdateCourseCommand(
+                courseViewModel.Id,
+                courseViewModel.Name,
+                courseViewModel.Description,
+                courseViewModel.ImageUrl
+            );
+
+            _bus.SendCommand(updateCourseCommand);
+        }
+
         public CourseViewModel GetCourses()
         {
             return new CourseViewModel()

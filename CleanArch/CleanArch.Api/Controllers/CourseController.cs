@@ -19,12 +19,20 @@ namespace CleanArch.Api.Controllers
             _courseService = courseService;
         }
 
-        [HttpPost]
-        public IActionResult Post([FromBody] CourseViewModel courseViewmodel)
+        [HttpPost("Create")]
+        public IActionResult Create([FromBody] CourseViewModel courseViewModel)
         {
-            _courseService.CreateCourse(courseViewmodel);
+            _courseService.CreateCourse(courseViewModel);
 
-            return Ok(courseViewmodel);
+            return Ok(courseViewModel);
+        }
+
+        [HttpPost("Update")]
+        public IActionResult Update([FromBody] CourseViewModel courseViewModel)
+        {
+            _courseService.UpdateCourse(courseViewModel);
+
+            return Ok(courseViewModel);
         }
     }
 }

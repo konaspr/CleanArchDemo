@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace CleanArch.Domain.CommandHandlers
 {
-    public class CourseCommandHandler : IRequestHandler<CreateCourseCommand, bool>
+    public class CreateCourseCommandHandler : IRequestHandler<CreateCourseCommand, bool>
     {
         private readonly ICourseRepository _courseRepository;
 
-        public CourseCommandHandler(ICourseRepository courseRepository)
+        public CreateCourseCommandHandler(ICourseRepository courseRepository)
         {
             _courseRepository = courseRepository;
         }

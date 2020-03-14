@@ -22,6 +22,17 @@ namespace CleanArch.Infra.Data.Repository
             _ctx.SaveChanges();
         }
 
+        public void Update(Course course)
+        {
+            var courseDbSet = _ctx.Courses.Find(course.Id);
+
+            courseDbSet.Name = course.Name;
+            courseDbSet.Description = course.Description;
+            courseDbSet.ImageUrl = course.ImageUrl;
+
+            _ctx.SaveChanges();            
+        }
+
         public IEnumerable<Course> GetCourses()
         {
             return _ctx.Courses;
